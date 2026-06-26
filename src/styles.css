@@ -1,0 +1,223 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Instrument Serif", "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-bronze: var(--bronze);
+  --color-bronze-foreground: var(--bronze-foreground);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-hairline: var(--hairline);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Editorial paper palette */
+  --paper: oklch(0.978 0.005 90);            /* #F8F8F5 off-white */
+  --ink: oklch(0.18 0.01 60);                /* near-black ink */
+  --bronze: oklch(0.58 0.12 55);             /* #B76E29 warm bronze */
+  --bronze-foreground: oklch(0.98 0.005 90);
+  --hairline: oklch(0.85 0.01 80);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: oklch(0.94 0.005 80);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.94 0.005 80);
+  --muted-foreground: oklch(0.48 0.015 70);
+  --accent: var(--bronze);
+  --accent-foreground: var(--bronze-foreground);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: var(--hairline);
+  --input: var(--hairline);
+  --ring: var(--bronze);
+}
+
+.dark {
+  --paper: oklch(0.16 0.008 70);
+  --ink: oklch(0.96 0.005 90);
+  --hairline: oklch(1 0 0 / 12%);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: oklch(0.20 0.01 70);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.20 0.01 70);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: oklch(0.24 0.01 70);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.24 0.01 70);
+  --muted-foreground: oklch(0.7 0.01 80);
+  --accent: var(--bronze);
+  --accent-foreground: var(--bronze-foreground);
+  --border: var(--hairline);
+  --input: var(--hairline);
+  --ring: var(--bronze);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  ::selection {
+    background: var(--bronze);
+    color: var(--bronze-foreground);
+  }
+}
+
+@utility container-editorial {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+  @media (min-width: 768px) { padding-inline: 3rem; }
+  @media (min-width: 1280px) { padding-inline: 5rem; }
+}
+
+@utility hairline {
+  border-top: 1px solid var(--hairline);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+@utility nav-link {
+  position: relative;
+  transition: color 200ms ease;
+}
+@utility nav-link {
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 100%;
+    background: var(--bronze);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@utility icon-lift {
+  transition: transform 240ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 200ms ease, background-color 200ms ease, border-color 200ms ease,
+    box-shadow 240ms ease;
+  &:hover {
+    transform: translateY(-2px) scale(1.08);
+    color: var(--bronze);
+  }
+  &:active { transform: translateY(0) scale(0.96); }
+}
+
+@utility btn-lift {
+  transition: transform 240ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 240ms ease, opacity 200ms ease, border-color 200ms ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -12px color-mix(in oklab, var(--foreground) 60%, transparent);
+  }
+  &:active { transform: translateY(0); }
+}
+
+@utility card-lift {
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 320ms ease, border-color 240ms ease, background-color 240ms ease;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -24px color-mix(in oklab, var(--foreground) 50%, transparent);
+    border-color: color-mix(in oklab, var(--foreground) 70%, transparent);
+  }
+  &:active { transform: translateY(-1px); }
+}
+
+@utility link-underline {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+

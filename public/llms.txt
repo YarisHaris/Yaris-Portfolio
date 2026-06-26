@@ -1,0 +1,29 @@
+# Yaris A. Nadaf
+
+> Personal portfolio of Yaris A. Nadaf — backend engineer, full stack developer, AI/ML developer, and IoT builder.
+
+Final-year B.E. student in Artificial Intelligence & Machine Learning, with three industry internships and projects spanning backend systems, full-stack products, applied AI, and embedded hardware.
+
+## Pages
+
+- [Home](/): Introduction, skills, education, experience, projects, achievements, contact.
+
+## Experience
+
+- [Full Stack Development Intern — Arlig Technologies](/experience/arlig-technologies): React, Node.js, PostgreSQL production work.
+- [Java & DBMS Intern — Karunadu Technologies](/experience/karunadu-java-dbms): Java services and relational schema design.
+- [HTML, CSS & JavaScript Intern — Karunadu Technologies](/experience/karunadu-web-fundamentals): Responsive marketing pages and interactive components.
+
+## Projects
+
+- [IntelliScreen](/projects/intelliscreen): AI resume screening platform with explainable scoring.
+- [Result Analyzer](/projects/result-analyzer): OCR-based academic analytics from scanned PDFs.
+- [NAIN 2.0](/projects/nain-2): Interactive Raspberry Pi robot with LLM-driven voice and motion.
+
+## Achievements
+
+- [National Hackathon Winner](/achievements/national-hackathon-winner)
+- [IEEE Poster Presentation](/achievements/ieee-poster-presentation)
+- [Government Innovation Project](/achievements/government-innovation-project)
+- [3 Professional Internships](/achievements/three-professional-internships)
+- [5+ Technical Projects](/achievements/five-plus-projects)
