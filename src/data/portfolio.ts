@@ -80,7 +80,7 @@ export const internships: Internship[] = [
       "How shipping software in a real team differs from coursework",
       "Disciplined code review and incremental refactoring",
     ],
-    certificate: "C:\Users\yaris\Downloads\Portfolio Builder Pro(1)\public\resume.pdf.pdf",
+    certificate: "/__l5e/assets-v1/ff9831b5-6319-43fb-9051-e52b040063fc/arlig-certificate.pdf",
   },
   {
     slug: "karunadu-java-dbms",
